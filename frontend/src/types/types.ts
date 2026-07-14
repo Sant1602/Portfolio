@@ -1,12 +1,12 @@
 import { IconType } from "react-icons";
 
-export interface statistics{
+export interface statistics {
     id: number,
     name: string,
     amount?: number,
 }
 
-export interface actions{
+export interface actions {
     id: number,
     name: string,
     color: string,
@@ -14,10 +14,17 @@ export interface actions{
     // url: string
 }
 
-export interface sidebar{
+export interface sidebar {
     id: number,
     name: string,
     icon: IconType,
     iconColor?: string,
     // url: string,
+}
+
+export interface NumberStatistics {
+    projects: number,
+    skills: number,
+    technologies: number,
+    views: number,
 }

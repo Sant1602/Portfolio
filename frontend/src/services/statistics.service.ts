@@ -1,6 +1,7 @@
 import { ENVS } from "@/config/constants"
+import { NumberStatistics } from "@/types/types";
 
-export async function getStatistics(): Promise<number>{
+export async function getStatistics(): Promise<NumberStatistics>{
     const res = await fetch(`${ENVS.API_URL}/statistics`, {
         method: "GET",
         credentials: "include",

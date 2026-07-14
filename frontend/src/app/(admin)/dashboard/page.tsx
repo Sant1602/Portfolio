@@ -3,10 +3,10 @@
 import { actionsDashboard } from "./dashboard.data";
 import { useState, useEffect } from "react";
 import { getStatistics } from "@/services/statistics.service";
-import { statistics } from "@/types/types";
+import { NumberStatistics, statistics } from "@/types/types";
 
 export default function AdminDashboard() {
-    const [statisticsDash, setStatisticsDash] = useState<number>();
+    const [statisticsDash, setStatisticsDash] = useState<NumberStatistics>();
     useEffect(() => {
         async function getInformation() {
             const data = await getStatistics();
@@ -21,21 +21,21 @@ export default function AdminDashboard() {
     const dataDashboard: statistics[] = [{
         id: 1,
         name: "Proyectos",
-        amount: statisticsDash
+        amount: statisticsDash?.projects
     }, {
         id: 2,
         name: "Skills",
-        amount: 10
+        amount: statisticsDash?.skills
     },
     {
         id: 3,
         name: "Tecnologias",
-        amount: 10
+        amount: statisticsDash?.technologies
     },
     {
         id: 4,
         name: "Visitas",
-        amount: 10
+        amount: statisticsDash?.views
     }]
 
     return (
