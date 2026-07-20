@@ -3,10 +3,11 @@
 import { actionsDashboard } from "./dashboard.data";
 import { useState, useEffect } from "react";
 import { getStatistics } from "@/services/statistics.service";
-import { NumberStatistics, statistics } from "@/types/types";
+import { NumberStatistics, statistics} from "@/types/types";
 
 export default function AdminDashboard() {
     const [statisticsDash, setStatisticsDash] = useState<NumberStatistics>();
+
     useEffect(() => {
         async function getInformation() {
             const data = await getStatistics();

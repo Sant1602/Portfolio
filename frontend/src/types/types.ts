@@ -19,7 +19,7 @@ export interface sidebar {
     name: string,
     icon: IconType,
     iconColor?: string,
-    // url: string,
+    url: string,
 }
 
 export interface NumberStatistics {
@@ -27,4 +27,15 @@ export interface NumberStatistics {
     skills: number,
     technologies: number,
     views: number,
+}
+
+export interface Technologies{
+    id: number,
+    name: string,
+    slug: string,
+}
+
+export interface TechnologyPost{
+    name: string,
+    slug: string,
 }

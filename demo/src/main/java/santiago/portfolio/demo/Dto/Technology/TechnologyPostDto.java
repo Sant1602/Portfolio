@@ -1,5 +1,4 @@
 package santiago.portfolio.demo.Dto.Technology;
 
-public class TechnologyPostDto {
-    
+public record TechnologyPostDto(String name, String slug) {
 }

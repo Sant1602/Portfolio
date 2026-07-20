@@ -10,7 +10,7 @@ export const actionsDashboard: actions[] = [{
 },
 {
     id: 2,
-    name: "Nueva experinecia",
+    name: "Nueva experiencia",
     color: "bg-green-600 hover:bg-green-700",
     icon: LuBriefcase,
 }, {

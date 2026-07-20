@@ -1,4 +1,5 @@
 import { sidebar } from "@/types/types";
+import Link from "next/link";
 import {
     LuChartNoAxesCombined, LuFolderArchive, LuAlbum, LuTrophy, LuScanQrCode,
     LuCircleUser, LuBell, LuBellDot, LuBadgeAlert
@@ -11,42 +12,50 @@ export default function Sidebar() {
     const dataSidebar: sidebar[] = [{
         id: 1,
         name: "Dashboard",
-        icon: LuChartNoAxesCombined
+        icon: LuChartNoAxesCombined,
+        url:"/dashboard",
     }, {
         id: 2,
         name: "Proyectos",
-        icon: LuFolderArchive
+        icon: LuFolderArchive,
+        url:"#",
     },
     {
         id: 3,
         name: "Experiencia",
-        icon: LuAlbum
+        icon: LuAlbum,
+        url:"#",
     },
     {
         id: 4,
         name: "Skill",
-        icon: LuTrophy
+        icon: LuTrophy,
+        url:"#",
     },
     {
         id: 5,
         name: "Tecnologias",
-        icon: LuScanQrCode
+        icon: LuScanQrCode,
+        url:"/dashboard/technologies",
     },
     {
         id: 6,
         name: "Contacto",
-        icon: LuCircleUser
+        icon: LuCircleUser,
+        url:"#",
     },
     {
         id: 7,
         name: "Configuracion",
-        icon: LuBadgeAlert
+        icon: LuBadgeAlert,
+        url:"#",
     },
     {
         id: 8,
         name: "Notificaciones",
         icon: messages ? LuBellDot:LuBell,
-        iconColor: messages? "text-red-500":"text-white"
+        iconColor: messages? "text-red-500":"text-white",
+        url:"#",
     }]
 
     return (
@@ -60,13 +69,14 @@ export default function Sidebar() {
                 {dataSidebar.map((d) => {
                     const Icon = d.icon;
                     return (
-                        <button
+                        <Link
                             key={d.id}
+                            href={d.url}
                             className="w-full flex items-center gap-3 text-left rounded-xl px-4 py-3 bg-blue-500/20 hover:bg-blue-500/30 transition cursor-pointer"
                         >
                             <Icon className={`w-5 h-5 ${d.iconColor}`} />
                             <span className={d.iconColor}>{d.name}</span>
-                        </button>
+                        </Link>
                     );
                 })}
             </nav>

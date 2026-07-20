@@ -10,6 +10,9 @@ import santiago.portfolio.demo.Dto.Technology.TechnologyPutDto;
 import santiago.portfolio.demo.Dto.Technology.TechnologyResponseDto;
 import santiago.portfolio.demo.Service.ITechnologyService;
 
+import org.springframework.http.MediaType;
+import org.springframework.web.multipart.MultipartFile;
+
 @RestController
 @RequestMapping("/technology")
 public class TechnologyController {

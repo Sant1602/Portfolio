@@ -31,6 +31,14 @@ public class Image {
     @JoinColumn(name = "project_id")
     private Project project;
 
+    public Image(){}
+
+    public Image(String url, String alt, Integer displayOrder) {
+        this.url = url;
+        this.alt = alt;
+        this.displayOrder = displayOrder;
+    }
+
     public Long getId() {
         return id;
     }
