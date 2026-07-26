@@ -1,3 +1,5 @@
+"use client";
+
 import { sidebar } from "@/types/types";
 import Link from "next/link";
 import {
@@ -5,58 +7,61 @@ import {
     LuCircleUser, LuBell, LuBellDot, LuBadgeAlert
 } from "react-icons/lu";
 
+import { useNotification } from "@/websocket/NotificationContext";
+
 export default function Sidebar() {
 
-    const messages = 10;
+    const { unread } = useNotification();
 
     const dataSidebar: sidebar[] = [{
         id: 1,
         name: "Dashboard",
         icon: LuChartNoAxesCombined,
-        url:"/dashboard",
+        url: "/dashboard",
     }, {
         id: 2,
         name: "Proyectos",
         icon: LuFolderArchive,
-        url:"#",
+        url: "#",
     },
     {
         id: 3,
         name: "Experiencia",
         icon: LuAlbum,
-        url:"#",
+        url: "/dashboard/experience",
     },
     {
         id: 4,
         name: "Skill",
         icon: LuTrophy,
-        url:"#",
+        url: "/dashboard/skills",
     },
     {
         id: 5,
         name: "Tecnologias",
         icon: LuScanQrCode,
-        url:"/dashboard/technologies",
+        url: "/dashboard/technologies",
     },
     {
         id: 6,
         name: "Contacto",
         icon: LuCircleUser,
-        url:"#",
+        url: "/dashboard/me",
     },
+
     {
         id: 7,
-        name: "Configuracion",
-        icon: LuBadgeAlert,
-        url:"#",
+        name: "Notificaciones",
+        icon: unread > 0 ? LuBellDot : LuBell,
+        iconColor: unread > 0 ? "text-red-500" : "text-white",
+        url: "/dashboard/suggestions",
     },
     {
         id: 8,
-        name: "Notificaciones",
-        icon: messages ? LuBellDot:LuBell,
-        iconColor: messages? "text-red-500":"text-white",
-        url:"#",
-    }]
+        name: "Configuracion",
+        icon: LuBadgeAlert,
+        url: "#",
+    },]
 
     return (
         <aside className="hidden lg:flex w-72 h-full bg-[#0C2340] border-r border-white/10 flex-col p-6">
@@ -72,10 +77,18 @@ export default function Sidebar() {
                         <Link
                             key={d.id}
                             href={d.url}
-                            className="w-full flex items-center gap-3 text-left rounded-xl px-4 py-3 bg-blue-500/20 hover:bg-blue-500/30 transition cursor-pointer"
+                            className="w-full flex items-center justify-between rounded-xl px-4 py-3 bg-blue-500/20 hover:bg-blue-500/30 transition"
                         >
-                            <Icon className={`w-5 h-5 ${d.iconColor}`} />
-                            <span className={d.iconColor}>{d.name}</span>
+                            <div className="flex items-center gap-3">
+                                <Icon className={`w-5 h-5 ${d.iconColor}`} />
+                                <span className={d.iconColor}>{d.name}</span>
+                            </div>
+
+                            {d.id === 8 && unread > 0 && (
+                                <span className="min-w-6 h-6 px-2 flex items-center justify-center rounded-full bg-red-500 text-white text-xs font-bold">
+                                    {unread}
+                                </span>
+                            )}
                         </Link>
                     );
                 })}

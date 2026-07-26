@@ -39,3 +39,73 @@ export interface TechnologyPost{
     name: string,
     slug: string,
 }
+
+export interface Skill{
+    id: number,
+    description: string,
+}
+
+export interface SkillPost{
+    description: string,
+}
+
+export interface Suggestion {
+    id: number;
+    name: string;
+    cellphoneNumber: string;
+    mail: string;
+    message: string;
+    status: StatusMessage;
+    createdAt: string;
+}
+
+export interface SuggestionData{
+    total: number,
+    read: number,
+    unread: number,
+    suggestions: Suggestion[],
+}
+
+export interface SuggestionAmount{
+    total: number,
+    read: number,
+    unread: number,
+}
+
+export enum StatusMessage {
+    Leido = "Leido",
+    No_leido = "No_leido",
+}
+
+export interface SuggestionPatch{
+    id: number,
+    status: StatusMessage,
+}
+
+export interface AboutMe {
+    id: number;
+    name: string;
+    profession: string;
+    shortDescription: string;
+    description: string;
+    location: string;
+    cv: string;
+    github: string;
+    linkedin: string;
+    availableForWork: boolean;
+}
+
+export interface Experience {
+    id: number;
+    position: string;
+    company: string;
+    location: string;
+    description: string;
+}
+
+export interface ExperiencePost {
+    position: string;
+    company: string;
+    location: string;
+    description: string;
+}

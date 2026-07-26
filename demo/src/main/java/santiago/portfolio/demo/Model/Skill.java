@@ -18,6 +18,8 @@ public class Skill {
     @Column(nullable = false)
     private String description;
 
+    public Skill(){}
+
     public Skill(String description) {
         this.description = description;
     }
