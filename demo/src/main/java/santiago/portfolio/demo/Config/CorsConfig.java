@@ -7,16 +7,18 @@ import org.springframework.beans.factory.annotation.Value;
 @Configuration
 public class CorsConfig {
 
-    //  @Value("${front.url:http://localhost:3000}")
-    //  private String frontUrl;
+    @Value("${front.url}")
+    private String frontUrl;
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
+                String[] origins = frontUrl.split(",");
+
                 registry.addMapping("/**")
-                        .allowedOriginPatterns("*")
+                        .allowedOrigins(origins)
                         .allowedMethods("*")
                         .allowedHeaders("*")
                         .allowCredentials(true);
