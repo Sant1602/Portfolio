@@ -38,6 +38,7 @@ import { getProjects } from "@/services/project.service";
 import { getStatistics } from "@/services/statistics.service";
 import { getSkills } from "@/services/skills.service";
 import { createSuggestion } from "@/services/suggestions.service";
+import MagicRings from "@/components/MagicRings";
 
 
 export default function PortfolioPage() {
@@ -276,17 +277,40 @@ export default function PortfolioPage() {
                         </div>
                     </div>
                     <div className="flex justify-center">
-                        <div className="relative">
-                            <div className="absolute inset-0 rounded-full bg-sky-500/20 blur-[100px]" />
-                            <div className="relative flex h-72 w-72 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-xl sm:h-96 sm:w-96">
-                                <div className="flex h-56 w-56 items-center justify-center rounded-full border border-sky-400/20 bg-sky-500/5 sm:h-72 sm:w-72">
-                                    <LuCode
-                                        size={110}
-                                        strokeWidth={1}
-                                        className="text-sky-400"
+                        <div className="relative h-80 w-80 overflow-hidden rounded-full sm:h-[500px] sm:w-[500px]">
+                            <MagicRings
+                                color="#38BDF8"
+                                colorTwo="#6366F1"
+                                ringCount={5}
+                                speed={1}
+                                attenuation={10}
+                                lineThickness={1.5}
+                                baseRadius={0.35}
+                                radiusStep={0.1}
+                                scaleRate={0.08}
+                                opacity={0.8}
+                                blur={0}
+                                noiseAmount={0.08}
+                                rotation={0}
+                                ringGap={1.5}
+                                fadeIn={0.7}
+                                fadeOut={0.5}
+                                followMouse={true}
+                                mouseInfluence={0.15}
+                                hoverScale={1.1}
+                                parallax={0.03}
+                                clickBurst={false}
+                            />
+                            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                                <div className="h-56 w-56 overflow-hidden rounded-full border-2 border-sky-400/30 bg-[#050816] shadow-[0_0_80px_rgba(56,189,248,0.3)] sm:h-80 sm:w-80">
+                                    <img
+                                        src="https://scontent.cdninstagram.com/v/t51.75761-19/491468752_17995673210790138_1637854424917164322_n.jpg?_nc_cat=104&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=5nmDbuK1wRQQ7kNvwG_jT1C&_nc_oc=Adr6BLNJt2E6dAO1ZQhpUTSoXsHHqkEHHrKNaJb1xObtjN0ZY8Vy_l719VZ3j6g6FprS-D2HcSynRLc1pebAIvnp&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=DSlhayDc1VuMtepGjPnFCQ&_nc_ss=7b6a8&oh=00_AQE9mL4MvgGTaHWJ0UujjNDYGzj8mVMtBS5-5Z1NZJ6gQg&oe=6A87EA21"
+                                        alt="Santiago"
+                                        className="h-full w-full rounded-full object-cover"
                                     />
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -446,7 +470,7 @@ export default function PortfolioPage() {
             >
                 <div className="mx-auto max-w-6xl">
                     <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
-                        Mi trabajo
+                        Mis trabajos
                     </p>
                     <h2 className="mt-3 text-4xl font-bold sm:text-5xl">
                         Proyectos
@@ -535,10 +559,7 @@ export default function PortfolioPage() {
                         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
                             Contacto
                         </p>
-                        <h2 className="mt-4 text-4xl font-bold sm:text-5xl">
-                            Hagamos algo juntos
-                        </h2>
-                        <p className="mx-auto mt-6 max-w-2xl leading-7 text-gray-400">
+                        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-300 sm:text-xl text-white">
                             Si estás interesado en mi trabajo o tienes alguna
                             sugerencia, siéntete libre de contactarme.
                         </p>
@@ -645,28 +666,24 @@ export default function PortfolioPage() {
                                 </button>
                             </form>
                         </div>
-                        <div className="flex flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl md:p-8">
+                        <div className="flex h-fit flex-col items-center rounded-3xl border border-white/10 bg-white/[0.03] p-6 text-center backdrop-blur-xl md:p-7">
 
-                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-400/10">
+                            <h3 className="mt-2 text-xl font-semibold text-white">
+                                A través del correo
+                            </h3>
 
-                                <LuMail
-                                    size={23}
-                                    className="text-sky-400"
-                                />
-                            </div>
-                            <p className="mt-3 text-sm leading-6 text-gray-500">
-                                También puedes escribirme directamente a mi correo
-                                electrónico.
+                            <p className="mt-3 max-w-xs text-sm leading-6 text-gray-400">
+                                Si lo prefieres, puedes escribirme directamente por correo.
                             </p>
-                            <div className="mt-auto pt-8">
-                                <a
-                                    href={`mailto:${ENVS.Mail}`}
-                                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium transition hover:bg-white/10"
-                                >
-                                    <LuMail size={17} />
-                                    Escribirme por correo
-                                </a>
-                            </div>
+
+                            <a
+                                href={`mailto:${ENVS.Mail}`}
+                                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium text-white transition hover:border-sky-400/30 hover:bg-sky-400/10"
+                            >
+                                <LuMail size={17} />
+                                Escribirme por correo
+                            </a>
+
                         </div>
                     </div>
                 </div>
