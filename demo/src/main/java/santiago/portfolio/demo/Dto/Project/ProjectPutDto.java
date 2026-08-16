@@ -11,7 +11,7 @@ public record ProjectPutDto(
         String githubFrontend,
         String githubBackend,
         String demo,
-        StatusProject status
+        StatusProject statusProject
 
 ) {
 
@@ -23,7 +23,7 @@ public record ProjectPutDto(
         project.setGithubFrontend(this.githubFrontend);
         project.setGithubBackend(this.githubBackend);
         project.setDemo(this.demo);
-        project.setStatus(this.status);
+        project.setStatus(this.statusProject);
 
     }
 

@@ -1,10 +1,16 @@
 package santiago.portfolio.demo.Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,6 +26,10 @@ public class Technology {
 
     @Column(nullable = false, unique = true)
     private String slug;
+
+    @ManyToMany
+    @JoinTable(name = "TecnologiasProyecto", joinColumns = @JoinColumn(name = "technologyId"), inverseJoinColumns = @JoinColumn(name = "projectId"))
+    private List<Project> projects = new ArrayList<>();
 
     public Technology() {
     }
@@ -47,5 +57,13 @@ public class Technology {
 
     public void setSlug(String slug) {
         this.slug = slug;
+    }
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void addProjects(Project projects) {
+        this.projects.add(projects);
     }
 }

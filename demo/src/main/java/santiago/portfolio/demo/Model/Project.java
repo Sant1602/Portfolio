@@ -16,7 +16,9 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import santiago.portfolio.demo.Enum.StatusProject;
 
@@ -56,14 +58,20 @@ public class Project {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Image> images = new ArrayList<>();
+    // @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+    // private List<Image> images = new ArrayList<>();
+
+    @OneToOne(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Image image;
+
+    @ManyToMany(mappedBy = "projects")
+    private List<Technology> technologies = new ArrayList<>();
 
     public Project() {
     }
 
     public Project(String name, String description, String shortDescription, String githubFrontend,
-            String githubBackend, String demo, StatusProject status) {
+            String githubBackend, String demo, StatusProject status, Image image) {
         this.name = name;
         this.description = description;
         this.shortDescription = shortDescription;
@@ -71,6 +79,7 @@ public class Project {
         this.githubBackend = githubBackend;
         this.demo = demo;
         this.status = status;
+        this.image = image;
     }
 
     public Long getId() {
@@ -145,14 +154,6 @@ public class Project {
         this.updatedAt = updatedAt;
     }
 
-    public List<Image> getImages() {
-        return images;
-    }
-
-    public void setImages(Image image) {
-        this.images.add(image);
-    }
-
     public StatusProject getStatus() {
         return status;
     }
@@ -160,5 +161,26 @@ public class Project {
     public void setStatus(StatusProject status) {
         this.status = status;
     }
+
+    public List<Technology> getTechnologies() {
+        return technologies;
+    }
+
+    public void addTechnology(Technology technology) {
+        if (!technologies.contains(technology)) {
+            technologies.add(technology);
+            technology.addProjects(this);
+        }
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
+
+    
 
 }

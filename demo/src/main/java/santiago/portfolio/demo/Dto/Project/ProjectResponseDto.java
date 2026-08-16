@@ -15,10 +15,10 @@ public record ProjectResponseDto(
         String githubFrontend,
         String githubBackend,
         String demo,
-        StatusProject status,
+        StatusProject statusProject,
         LocalDateTime createdAt,
         LocalDateTime updatedAt,
-        List<ImageDtoResponse> images) {
+        String image) {
 
     public ProjectResponseDto(Project project) {
         this(
@@ -32,10 +32,7 @@ public record ProjectResponseDto(
                 project.getStatus(),
                 project.getCreatedAt(),
                 project.getUpdatedAt(),
-                project.getImages()
-                        .stream()
-                        .map(ImageDtoResponse::new)
-                        .toList()
+                project.getImage().getUrl()
         );
     }
     

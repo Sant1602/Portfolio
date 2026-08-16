@@ -22,7 +22,7 @@ export default function Sidebar() {
         id: 2,
         name: "Proyectos",
         icon: LuFolderArchive,
-        url: "#",
+        url: "/dashboard/project",
     },
     {
         id: 3,

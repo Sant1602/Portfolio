@@ -109,3 +109,33 @@ export interface ExperiencePost {
     location: string;
     description: string;
 }
+
+export enum ProjectStatus{
+    Publicado = "Publicado",
+    Actualizando = "Actualizando",
+    Inhabilitado = "Inhabilitado"
+}
+
+export interface Project {
+    id: number;
+    name: string;
+    description: string;
+    shortDescription: string;
+    githubFrontend: string;
+    githubBackend: string;
+    demo: string;
+    statusProject: ProjectStatus;
+    createdAt: string;
+    updatedAt: string;
+    image: string;
+}
+
+export interface ProjectPostDto {
+    name: string;
+    description: string;
+    shortDescription: string;
+    githubFrontend: string;
+    githubBackend: string;
+    demo: string;
+    statusProject: ProjectStatus;
+}

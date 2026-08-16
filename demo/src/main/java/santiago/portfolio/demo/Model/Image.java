@@ -1,5 +1,7 @@
 package santiago.portfolio.demo.Model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -8,7 +10,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import santiago.portfolio.demo.Dto.Image.ImageDtoProject;
 
 @Entity
 @Table(name = "Imagen")
@@ -24,19 +28,21 @@ public class Image {
     @Column(nullable = false)
     private String alt;
 
-    @Column(nullable = false)
-    private Integer displayOrder;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "project_id", nullable = false, unique = true)
     private Project project;
 
-    public Image(){}
+    public Image() {
+    }
 
-    public Image(String url, String alt, Integer displayOrder) {
+    public Image(ImageDtoProject image) {
+        this.url = image.fileName();
+        this.alt = image.altName();
+    }
+
+    public Image(String url, String alt) {
         this.url = url;
         this.alt = alt;
-        this.displayOrder = displayOrder;
     }
 
     public Long getId() {
@@ -63,14 +69,6 @@ public class Image {
         this.alt = alt;
     }
 
-    public Integer getDisplayOrder() {
-        return displayOrder;
-    }
-
-    public void setDisplayOrder(Integer displayOrder) {
-        this.displayOrder = displayOrder;
-    }
-
     public Project getProject() {
         return project;
     }
@@ -79,5 +77,4 @@ public class Image {
         this.project = project;
     }
 
-    
 }
