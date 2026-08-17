@@ -1,5 +1,7 @@
 package santiago.portfolio.demo.Dto.Project;
 
+import java.util.List;
+
 import santiago.portfolio.demo.Enum.StatusProject;
 
 public record ProjectPostDto(
@@ -8,6 +10,7 @@ public record ProjectPostDto(
         String shortDescription,
         String githubFrontend,
         String githubBackend,
+        List<Long> technologies,
         StatusProject statusProject,
         String demo) {
 }

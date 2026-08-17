@@ -58,7 +58,8 @@ public class Project {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    // @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+    // @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval =
+    // true)
     // private List<Image> images = new ArrayList<>();
 
     @OneToOne(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -180,7 +181,5 @@ public class Project {
     public void setImage(Image image) {
         this.image = image;
     }
-
-    
 
 }

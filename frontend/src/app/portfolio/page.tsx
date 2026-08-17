@@ -469,85 +469,243 @@ export default function PortfolioPage() {
                 className="scroll-mt-24 px-6 py-16"
             >
                 <div className="mx-auto max-w-6xl">
+
                     <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
                         Mis trabajos
                     </p>
+
                     <h2 className="mt-3 text-4xl font-bold sm:text-5xl">
                         Proyectos
                     </h2>
+
                     <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
                         {projects.map((project) => (
 
                             <article
                                 key={project.id}
-                                className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl transition hover:-translate-y-2 hover:border-sky-400/20"
+                                className="
+                        group
+                        flex
+                        flex-col
+                        overflow-hidden
+                        rounded-3xl
+                        border
+                        border-white/10
+                        bg-white/[0.03]
+                        backdrop-blur-xl
+                        transition
+                        duration-300
+                        hover:-translate-y-2
+                        hover:border-sky-400/20
+                        hover:bg-white/[0.05]
+                    "
                             >
                                 <div className="relative flex h-52 items-center justify-center overflow-hidden bg-white/[0.02]">
+
                                     {project.image ? (
+
                                         <img
-                                            src={project.image}
+                                            src={`${ENVS.API_UPLOADS}${project.image}`}
                                             alt={project.name}
-                                            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                                            className="
+                                    h-full
+                                    w-full
+                                    object-cover
+                                    transition
+                                    duration-500
+                                    group-hover:scale-105
+                                "
                                         />
+
                                     ) : (
+
                                         <LuCode
                                             size={70}
                                             strokeWidth={1}
                                             className="text-sky-400"
                                         />
+
                                     )}
+
                                 </div>
-                                <div className="p-6">
+                                <div className="flex flex-1 flex-col p-6">
                                     <div className="flex items-start justify-between gap-3">
-                                        <h3 className="text-xl font-semibold">
+
+                                        <h3 className="text-xl font-semibold text-white">
                                             {project.name}
                                         </h3>
-                                        <span className="rounded-full border border-sky-400/20 bg-sky-400/10 px-2.5 py-1 text-[10px] text-sky-300">
+
+                                        <span className="shrink-0 rounded-full border border-sky-400/20 bg-sky-400/10 px-2.5 py-1 text-[10px] text-sky-300">
                                             {project.statusProject}
                                         </span>
+
                                     </div>
-                                    <p className="mt-4 min-h-[90px] text-sm leading-6 text-gray-400">
+                                    <p className="mt-4 text-sm leading-6 text-gray-400">
                                         {project.shortDescription}
                                     </p>
-                                    <div className="mt-6 flex flex-wrap gap-2">
-                                        {project.githubFrontend && (
-                                            <a
-                                                href={project.githubFrontend}
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                className="inline-flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-xs transition hover:bg-white/10"
-                                            >
-                                                <LuGithub size={15} />
-                                                Frontend
-                                            </a>
-                                        )}
-                                        {project.githubBackend && (
-                                            <a
-                                                href={project.githubBackend}
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                className="inline-flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-xs transition hover:bg-white/10"
-                                            >
-                                                <LuGithub size={15} />
-                                                Backend
-                                            </a>
-                                        )}
-                                        {project.demo && (
-                                            <a
-                                                href={project.demo}
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                className="inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-xs font-medium text-black transition hover:bg-gray-200"
-                                            >
-                                                <LuExternalLink size={15} />
-                                                Demo
-                                            </a>
-                                        )}
+                                    <div className="mt-5">
+
+                                        <h4 className="text-sm font-semibold text-gray-300">
+                                            Sobre el proyecto
+                                        </h4>
+
+                                        <p className="mt-2 text-sm leading-6 text-gray-500">
+                                            {project.description}
+                                        </p>
+
                                     </div>
+                                    {project.technologies &&
+                                        project.technologies.length > 0 && (
+
+                                            <div className="mt-6">
+
+                                                <h4 className="mb-3 text-sm font-semibold text-gray-300">
+                                                    Tecnologías
+                                                </h4>
+
+                                                <div className="flex flex-wrap gap-2">
+
+                                                    {project.technologies.map(
+                                                        (technology) => (
+
+                                                            <div
+                                                                key={technology.id}
+                                                                className="
+                                                        inline-flex
+                                                        items-center
+                                                        gap-2
+                                                        rounded-lg
+                                                        border
+                                                        border-white/10
+                                                        bg-white/5
+                                                        px-2.5
+                                                        py-1.5
+                                                        text-xs
+                                                        text-gray-300
+                                                        transition
+                                                        hover:border-sky-400/20
+                                                        hover:bg-sky-400/5
+                                                    "
+                                                            >
+
+                                                                <img
+                                                                    src={`${ENVS.API_ICONS}${technology.slug}`}
+                                                                    alt={technology.name}
+                                                                    className="h-4 w-4 object-contain"
+                                                                />
+
+                                                                <span>
+                                                                    {technology.name}
+                                                                </span>
+
+                                                            </div>
+
+                                                        )
+                                                    )}
+
+                                                </div>
+
+                                            </div>
+
+                                        )}
+                                    <div className="mt-auto pt-6">
+
+                                        <div className="flex flex-wrap gap-2">
+
+                                            {project.githubFrontend && (
+
+                                                <a
+                                                    href={project.githubFrontend}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    className="
+                                            inline-flex
+                                            items-center
+                                            gap-2
+                                            rounded-lg
+                                            border
+                                            border-white/10
+                                            px-3
+                                            py-2
+                                            text-xs
+                                            transition
+                                            hover:bg-white/10
+                                        "
+                                                >
+                                                    <LuGithub size={15} />
+                                                    Frontend
+                                                </a>
+
+                                            )}
+
+
+                                            {project.githubBackend && (
+
+                                                <a
+                                                    href={project.githubBackend}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    className="
+                                            inline-flex
+                                            items-center
+                                            gap-2
+                                            rounded-lg
+                                            border
+                                            border-white/10
+                                            px-3
+                                            py-2
+                                            text-xs
+                                            transition
+                                            hover:bg-white/10
+                                        "
+                                                >
+                                                    <LuGithub size={15} />
+                                                    Backend
+                                                </a>
+
+                                            )}
+
+
+                                            {project.demo && (
+
+                                                <a
+                                                    href={project.demo}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    className="
+                                            inline-flex
+                                            items-center
+                                            gap-2
+                                            rounded-lg
+                                            bg-white
+                                            px-3
+                                            py-2
+                                            text-xs
+                                            font-medium
+                                            text-black
+                                            transition
+                                            hover:bg-gray-200
+                                        "
+                                                >
+                                                    <LuExternalLink size={15} />
+                                                    Demo
+                                                </a>
+
+                                            )}
+
+                                        </div>
+
+                                    </div>
+
                                 </div>
+
                             </article>
+
                         ))}
+
                     </div>
+
                 </div>
             </section>
             <section

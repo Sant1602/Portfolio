@@ -4,8 +4,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import santiago.portfolio.demo.Dto.Image.ImageDtoResponse;
+import santiago.portfolio.demo.Dto.Technology.TechnologyResponseDto;
 import santiago.portfolio.demo.Enum.StatusProject;
+import santiago.portfolio.demo.Mappers.ListMappers;
 import santiago.portfolio.demo.Model.Project;
+import santiago.portfolio.demo.Model.Technology;
 
 public record ProjectResponseDto(
         Long id,
@@ -18,6 +21,7 @@ public record ProjectResponseDto(
         StatusProject statusProject,
         LocalDateTime createdAt,
         LocalDateTime updatedAt,
+        List<TechnologyResponseDto> technologies,
         String image) {
 
     public ProjectResponseDto(Project project) {
@@ -32,6 +36,7 @@ public record ProjectResponseDto(
                 project.getStatus(),
                 project.getCreatedAt(),
                 project.getUpdatedAt(),
+                ListMappers.toDto(project.getTechnologies(), TechnologyResponseDto::new),
                 project.getImage().getUrl()
         );
     }

@@ -128,6 +128,7 @@ export interface Project {
     createdAt: string;
     updatedAt: string;
     image: string;
+    technologies: Technologies[];
 }
 
 export interface ProjectPostDto {
@@ -137,5 +138,6 @@ export interface ProjectPostDto {
     githubFrontend: string;
     githubBackend: string;
     demo: string;
-    statusProject: ProjectStatus;
+    statusProject: ProjectStatus
+    technologies: number[];
 }
