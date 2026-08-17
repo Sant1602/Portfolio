@@ -506,7 +506,7 @@ export default function PortfolioPage() {
                                     {project.image ? (
 
                                         <img
-                                            src={`${ENVS.API_UPLOADS}${project.image}`}
+                                            src={`${ENVS.API_UPLOADS}/${project.image}`}
                                             alt={project.name}
                                             className="
                                     h-full
