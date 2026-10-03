@@ -42,9 +42,9 @@ public class ProjectController {
         return ResponseEntity.ok(project);
     }
 
-    @PutMapping(value = "/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PutMapping(value = "/{id}")
     public ResponseEntity<ProjectResponseDto> putProject(@PathVariable Long id,
-            @RequestPart ProjectPutDto projectPutDto, @RequestPart(required = false) MultipartFile image) {
+            @RequestPart ProjectPutDto projectPutDto, @RequestPart( value = "Image", required = false) MultipartFile image) {
         ProjectResponseDto project = projectService.putProject(id, projectPutDto, image);
         return ResponseEntity.ok(project);
     }
