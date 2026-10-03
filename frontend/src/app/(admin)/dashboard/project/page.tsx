@@ -84,7 +84,7 @@ export default function ProjectsPage() {
                         <div className="aspect-video bg-zinc-900 flex items-center justify-center overflow-hidden">
                             {project.image ? (
                                 <img
-                                    src={`${ENVS.API_UPLOADS}/${project.image}`}
+                                    src={`${project.image}`}
                                     alt={project.name}
                                     className="w-full h-full object-cover"
                                 />

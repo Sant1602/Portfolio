@@ -17,7 +17,7 @@ export async function createProject(project: ProjectPostDto,image: File): Promis
             type: "application/json",
         })
     );
-    formData.append("image", image, image.name);
+    formData.append("Image", image, image.name);
     const response = await fetch(`${ENVS.API_URL}/project`, {
         method: "POST",
         body: formData,

@@ -35,9 +35,9 @@ public class ProjectController {
         return ResponseEntity.ok(projectService.getProject());
     }
 
-    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<ProjectResponseDto> postProject(@RequestPart ProjectPostDto projectPostDto,
-            @RequestPart MultipartFile image) {
+    @PostMapping
+    public ResponseEntity<ProjectResponseDto> postProject(@RequestPart ProjectPostDto projectPostDto, 
+        @RequestPart("Image") MultipartFile image) {
         ProjectResponseDto project = projectService.createProject(projectPostDto, image);
         return ResponseEntity.ok(project);
     }

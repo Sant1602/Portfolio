@@ -501,12 +501,12 @@ export default function PortfolioPage() {
                         hover:bg-white/[0.05]
                     "
                             >
-                                <div className="relative flex h-52 items-center justify-center overflow-hidden bg-white/[0.02]">
+                                <div className="relative flex h-52 items-center justify-center overflow-hidden bg-white/2">
 
                                     {project.image ? (
 
                                         <img
-                                            src={`${ENVS.API_UPLOADS}/${project.image}`}
+                                            src={`${project.image}`}
                                             alt={project.name}
                                             className="
                                     h-full

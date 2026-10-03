@@ -10,7 +10,6 @@ import santiago.portfolio.demo.Dto.Image.ImageDtoProject;
 import santiago.portfolio.demo.Dto.Project.ProjectPostDto;
 import santiago.portfolio.demo.Dto.Project.ProjectPutDto;
 import santiago.portfolio.demo.Dto.Project.ProjectResponseDto;
-import santiago.portfolio.demo.Enum.StatusProject;
 import santiago.portfolio.demo.Mappers.ListMappers;
 import santiago.portfolio.demo.Model.Image;
 import santiago.portfolio.demo.Model.Project;

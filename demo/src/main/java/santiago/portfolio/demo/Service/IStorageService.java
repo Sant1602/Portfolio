@@ -8,5 +8,5 @@ public interface IStorageService {
 
     ImageDtoProject save(MultipartFile file);
 
-    void delete(String fileName);
+    // void delete(String fileName);
 }
