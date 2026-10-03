@@ -59,7 +59,7 @@ export default function ProjectForm({ project, onClose }: Props) {
             project.technologies?.map(
                 (technology) => technology.id) ?? []);
         if (project.image) {
-            setPreview(`${ENVS.API_UPLOADS}${project.image}`);
+            setPreview(`${project.image}`);
         }
     }, [project]);
 

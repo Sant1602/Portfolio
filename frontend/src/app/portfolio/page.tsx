@@ -4,31 +4,22 @@ import { useEffect, useState } from "react";
 import { ENVS } from "@/config/constants";
 import {
     LuArrowDown,
-    LuArrowUp,
-    LuBriefcase,
-    LuCalendar,
     LuCode,
-    LuDatabase,
     LuDownload,
     LuExternalLink,
     LuGithub,
     LuLinkedin,
     LuMail,
     LuMapPin,
-    LuMenu,
     LuSend,
-    LuServer,
-    LuX,
 } from "react-icons/lu";
 
 import {
     AboutMe,
     Experience,
-    NumberStatistics,
     Project,
     Technologies,
     Skill,
-    Suggestion,
 } from "@/types/types";
 
 import { getAboutMe } from "@/services/aboutme.service";
