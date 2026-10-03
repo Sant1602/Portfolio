@@ -502,7 +502,6 @@ export default function PortfolioPage() {
                     "
                             >
                                 <div className="relative flex h-52 items-center justify-center overflow-hidden bg-white/2">
-
                                     {project.image ? (
 
                                         <img

@@ -79,8 +79,7 @@ export default function ProjectsPage() {
                 {projects.map((project) => (
                     <div
                         key={project.id}
-                        className="overflow-hidden rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-cyan-500 transition"
-                    >
+                        className="overflow-hidden rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-cyan-500 transition">
                         <div className="aspect-video bg-zinc-900 flex items-center justify-center overflow-hidden">
                             {project.image ? (
                                 <img
