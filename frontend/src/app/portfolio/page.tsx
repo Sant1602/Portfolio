@@ -421,7 +421,7 @@ export default function PortfolioPage() {
                         Experiencia
                     </h2>
                     <div className="relative mt-14">
-                        <div className="absolute left-[7px] top-2 bottom-0 w-[2px] bg-sky-400" />
+                        <div className="absolute left-1.75 top-2 bottom-0 w-0.5 bg-sky-400" />
                         <div className="space-y-12">
                             {experiences.map((experience) => (
                                 <article
@@ -432,7 +432,7 @@ export default function PortfolioPage() {
 
                                         <div className="h-1.5 w-1.5 rounded-full bg-sky-400" />
                                     </div>
-                                    <div className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl transition duration-300 hover:border-sky-400/20 hover:bg-white/[0.05] md:p-7">
+                                    <div className="group rounded-2xl border border-white/10 bg-white/3 p-6 backdrop-blur-xl transition duration-300 hover:border-sky-400/20 hover:bg-white/5 md:p-7">
                                         <h3 className="text-xl font-semibold text-white">
                                             {experience.position}
                                         </h3>
@@ -445,7 +445,7 @@ export default function PortfolioPage() {
                                                 {experience.location}
                                             </span>
                                         </div>
-                                        <p className="mt-5 max-w-3xl leading-7 text-gray-400">
+                                        <p className="mt-5 max-w-3xl text-justify leading-7 text-gray-400">
                                             {experience.description}
                                         </p>
                                     </div>
