@@ -295,7 +295,7 @@ export default function PortfolioPage() {
                             <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
                                 <div className="h-56 w-56 overflow-hidden rounded-full border-2 border-sky-400/30 bg-[#050816] shadow-[0_0_80px_rgba(56,189,248,0.3)] sm:h-80 sm:w-80">
                                     <img
-                                        src="https://scontent.cdninstagram.com/v/t51.75761-19/491468752_17995673210790138_1637854424917164322_n.jpg?_nc_cat=104&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=5nmDbuK1wRQQ7kNvwG_jT1C&_nc_oc=Adr6BLNJt2E6dAO1ZQhpUTSoXsHHqkEHHrKNaJb1xObtjN0ZY8Vy_l719VZ3j6g6FprS-D2HcSynRLc1pebAIvnp&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=DSlhayDc1VuMtepGjPnFCQ&_nc_ss=7b6a8&oh=00_AQE9mL4MvgGTaHWJ0UujjNDYGzj8mVMtBS5-5Z1NZJ6gQg&oe=6A87EA21"
+                                        src={ENVS.Profile}
                                         alt="Santiago"
                                         className="h-full w-full rounded-full object-cover"
                                     />
